@@ -1,13 +1,32 @@
 @import "tailwindcss";
 
 :root {
-    --background: #ffffff;
-    --foreground: #000000;
+    --color-background: #fffaf0;
+    --color-foreground: #2c1810;
+    --color-church-brown: #8B4513;
+    --color-church-gold: #D4AF37;
+    --color-church-red: #8B0000;
+}
+
+@theme {
+    --color-background: var(--color-background);
+    --color-foreground: var(--color-foreground);
+    --color-church-brown: var(--color-church-brown);
+    --color-church-gold: var(--color-church-gold);
+    --color-church-red: var(--color-church-red);
+
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+    --radius-lg: 0.5rem;
+    --radius-md: 0.375rem;
+    --radius-sm: 0.25rem;
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-serif);
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
 }

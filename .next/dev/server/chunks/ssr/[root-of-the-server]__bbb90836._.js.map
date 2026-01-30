@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///Users/mak/Documents/sitepalkino/app/page.tsx"],"sourcesContent":["export default function Home() {\n    return (\n        <div>\n            <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>\n                Храм преподобного Серафима Саровского\n            </h1>\n            <p style={{ marginBottom: '10px' }}>\n                с. Палкино, Антроповский район\n            </p>\n            <p>\n                Сайт находится в разработке\n            </p>\n        </div>\n    )\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACpB,qBACI,6PAAC;;0BACG,6PAAC;gBAAG,OAAO;oBAAE,UAAU;oBAAQ,YAAY;oBAAQ,cAAc;gBAAO;0BAAG;;;;;;0BAG3E,6PAAC;gBAAE,OAAO;oBAAE,cAAc;gBAAO;0BAAG;;;;;;0BAGpC,6PAAC;0BAAE;;;;;;;;;;;;AAKf"}}]
-}

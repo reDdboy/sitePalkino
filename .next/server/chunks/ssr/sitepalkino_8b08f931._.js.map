@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../sitepalkino/app/contacts/page.tsx"],"sourcesContent":["export default function Contacts() {\n    return (\n        <div>\n\n        </div>\n    )\n}\n"],"names":[],"mappings":"8LAAe,SAAS,IACpB,MACI,CAAA,EAAA,EAAA,GAAA,EAAC,MAAA,CAAA,EAIT"}

@@ -1,0 +1,3 @@
+module.exports=[95891,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(94606);a.n(d("[project]/sitepalkino/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},63200,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(94606);a.n(d("[project]/sitepalkino/node_modules/next/dist/client/components/builtin/global-error.js"))},95792,a=>{"use strict";a.i(95891);var b=a.i(63200);a.n(b)}];
+
+//# sourceMappingURL=71b11_next_dist_client_components_builtin_global-error_24360350.js.map

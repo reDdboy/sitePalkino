@@ -21,7 +21,7 @@ sitepalkino/
 │   ├── contacts/          # Контакты
 │   │   └── page.tsx
 │   │
-│   └── not-found.tsx      # Страница 404
+│   └── wrong.tsx      # Страница 404
 │
 ├── components/            # Все компоненты React
 │   ├── Header.tsx        # Шапка сайта

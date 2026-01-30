@@ -1,9 +1,18 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './global.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
+const inter = Inter({
+    subsets: ['cyrillic', 'latin'],
+    variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
     title: 'Храм преподобного Серафима Саровского',
-    description: 'Сайт храма Серафима Саровского в селе Палкино Антроповского района',
+    description: 'Официальный сайт храма в селе Палкино Антроповского района',
+    keywords: ['храм', 'Серафим Саровский', 'Палкино', 'Антроповский район', 'православие'],
 }
 
 export default function RootLayout({
@@ -12,29 +21,13 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="ru">
-            <body>
-                <div className="min-h-screen bg-amber-50">
-                    <header className="bg-white shadow-sm border-b border-amber-200">
-                        <div className="max-w-7xl mx-auto px-4 py-4">
-                            <h1 className="text-2xl font-bold text-amber-900">
-                                Храм преподобного Серафима Саровского
-                            </h1>
-                            <p className="text-gray-600">
-                                с. Палкино, Антроповский район
-                            </p>
-                        </div>
-                    </header>
-                    <main className="max-w-7xl mx-auto px-4 py-8">
-                        {children}
-                    </main>
-                    <footer className="bg-amber-900 text-white py-6 mt-8">
-                        <div className="max-w-7xl mx-auto px-4 text-center">
-                            <p>© {new Date().getFullYear()} Храм прп. Серафима Саровского</p>
-                            <p className="text-amber-200 text-sm mt-2">Русская Православная Церковь</p>
-                        </div>
-                    </footer>
-                </div>
+        <html lang="ru" className={`${inter.variable}`}>
+            <body className="min-h-screen flex flex-col bg-background text-foreground font-sans">
+                <Header />
+                <main className="flex-1">
+                    {children}
+                </main>
+                <Footer />
             </body>
         </html>
     )
