@@ -3233,7 +3233,7 @@ function AppContainer({ children }) {
                                         "path": ("TURBOPACK compile-time value", "/_next/image"),
                                         "loader": ("TURBOPACK compile-time value", "default"),
                                         "dangerouslyAllowSVG": ("TURBOPACK compile-time value", false),
-                                        "unoptimized": ("TURBOPACK compile-time value", false),
+                                        "unoptimized": ("TURBOPACK compile-time value", true),
                                         "domains": ("TURBOPACK compile-time value", []),
                                         "remotePatterns": ("TURBOPACK compile-time value", []),
                                         "localPatterns": ("TURBOPACK compile-time value", [
@@ -3241,7 +3241,8 @@ function AppContainer({ children }) {
                                                 "pathname": ("TURBOPACK compile-time value", "**"),
                                                 "search": ("TURBOPACK compile-time value", "")
                                             })
-                                        ])
+                                        ]),
+                                        "output": ("TURBOPACK compile-time value", "export")
                                     }),
                                     children: children
                                 })
@@ -3487,9 +3488,7 @@ function doRender(input) {
                 callback,
                 onRootCommit
             ],
-            children: ("TURBOPACK compile-time truthy", 1) ? /*#__PURE__*/ (0, _jsxruntime.jsx)(_react.default.StrictMode, {
-                children: elem
-            }) : "TURBOPACK unreachable"
+            children: ("TURBOPACK compile-time falsy", 0) ? /*#__PURE__*/ "TURBOPACK unreachable" : elem
         }));
     return renderPromise;
 }

@@ -1,34 +1,29 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// app/layout.tsx
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './global.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from './components/Header';
+import Footer from './components/Footer'
 
-const inter = Inter({
-    subsets: ['cyrillic', 'latin'],
-    variable: '--font-inter',
-})
+const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 
 export const metadata: Metadata = {
-    title: 'Храм преподобного Серафима Саровского',
-    description: 'Официальный сайт храма в селе Палкино Антроповского района',
-    keywords: ['храм', 'Серафим Саровский', 'Палкино', 'Антроповский район', 'православие'],
-}
+    title: 'Храм Преподобного Серафима Саровского',
+    description: 'Официальный сайт храма Серафима Саровского',
+};
 
 export default function RootLayout({
     children,
-}: Readonly<{
-    children: React.ReactNode
-}>) {
+}: {
+    children: React.ReactNode;
+}) {
     return (
-        <html lang="ru" className={`${inter.variable}`}>
-            <body className="min-h-screen flex flex-col bg-background text-foreground font-sans">
+        <html lang="ru">
+            <body className={inter.className}>
                 <Header />
-                <main className="flex-1">
-                    {children}
-                </main>
+                <main>{children}</main>
                 <Footer />
             </body>
         </html>
-    )
+    );
 }
