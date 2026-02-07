@@ -81,14 +81,24 @@ export default function Footer() {
                                 <Phone className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
                                 <div>
                                     <div className="font-sans text-gray-700 font-medium">Настоятель Храма о. Александр</div>
-                                    <div className="font-sans text-gray-600">+7 (916) 490-48-19</div>
+                                    <div className="font-sans text-gray-600">
+                                        <a className="hover:text-church-red"
+                                            href='tel:+79264904819'>
+                                            +7 (926) 490-48-19
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
                                 <Phone className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
                                 <div>
                                     <div className="font-sans text-gray-700 font-medium">Матушка Наталия</div>
-                                    <div className="font-sans text-gray-600">+7 (999) 904-04-03</div>
+                                    <div className="font-sans text-gray-600">
+                                        <a className='hover:text-church-red'
+                                            href='tel:+79999040403'>
+                                            +7 (999) 904-04-03
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">

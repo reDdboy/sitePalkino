@@ -20,10 +20,12 @@ export default function RootLayout({
     return (
         <html lang="ru">
             <body className={inter.className}>
-                <Header />
-                <main>{children}</main>
-                <Footer />
+                <div className='flex flex-col min-h-screen'>
+                    <Header />
+                    <main className='flex-grow'>{children}</main>
+                    <Footer />
+                </div>
             </body>
-        </html>
+        </html >
     );
 }
