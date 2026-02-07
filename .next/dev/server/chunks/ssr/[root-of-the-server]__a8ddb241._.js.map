@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///Users/mak/Documents/sitepalkino/app/page.tsx"],"sourcesContent":["export default function HomePage() {\n    return (\n        <div className=\"container mx-auto px-4 py-12\">\n\n        </div>\n    )\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACpB,qBACI,6PAAC;QAAI,WAAU;;;;;;AAIvB"}}]
-}

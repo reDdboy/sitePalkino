@@ -1,5 +1,0 @@
-1:"$Sreact.fragment"
-2:I[59499,["/_next/static/chunks/7b42fc919e5bdab6.js","/_next/static/chunks/61321990b79e7053.js"],"ViewportBoundary"]
-3:I[59499,["/_next/static/chunks/7b42fc919e5bdab6.js","/_next/static/chunks/61321990b79e7053.js"],"MetadataBoundary"]
-4:"$Sreact.suspense"
-0:{"buildId":"DhuqhLH_-XGplz2oUZJDU","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Храм Преподобного Серафима Саровского"}],["$","meta","1",{"name":"description","content":"Официальный сайт храма Серафима Саровского"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}

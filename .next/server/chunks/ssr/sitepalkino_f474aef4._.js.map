@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../../sitepalkino/app/page.tsx"],"sourcesContent":["export default function HomePage() {\n    return (\n        <div className=\"container mx-auto px-4 py-12\">\n\n        </div>\n    )\n}\n"],"names":[],"mappings":"6LAAe,SAAS,IACpB,MACI,CAAA,EAAA,EAAA,GAAA,EAAC,MAAA,CAAI,UAAU,gCAIvB"}
