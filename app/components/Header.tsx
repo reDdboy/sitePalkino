@@ -1,10 +1,15 @@
 'use client'
 
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+
+interface NavLink {
+    href: string
+    label: string
+}
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +26,7 @@ const Header = () => {
                     {/* Левая часть: фото и название */}
                     <div className="flex items-center gap-4 md:gap-6 w-full lg:w-auto">
                         {/* Фотография - теперь с явными размерами для отладки */}
-                        <div className="flex w-40 h-40 md:w-20 md:h-20 rounded-full overflow-hidden shadow-md flex-shrink-0 py-2">
+                        <div className="flex w-60 h-60 md:w-20 md:h-20 rounded-full overflow-hidden shadow-md flex-shrink-0 py-2">
                             <Image
                                 src="/hram.jpg"
                                 alt="Храм Серафима Саровского"
@@ -69,9 +74,12 @@ const Header = () => {
                             >
                                 Помочь храму
                             </Link>
+
+                            <ThemeToggle />
                         </div>
 
                         <div className="flex items-center space-x-4 md:hidden">
+                            <ThemeToggle />
                             <button
                                 className="p-2"
                                 onClick={() => setIsOpen(!isOpen)}
