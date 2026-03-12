@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
 
 interface NavLink {
     href: string
@@ -19,7 +19,7 @@ const Header = () => {
     }
 
     return (
-        <header className="bg-white border-b border-gray-200 py-4 center">
+        <header className="bg-background border-b border-church-gold/40 dark:border-church-gold/60 py-4 center transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4">
                 {/* Основная строка с фото, названием и навигацией */}
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -39,10 +39,10 @@ const Header = () => {
 
                         {/* Название храма */}
                         <div className="text-center lg:text-left flex-1">
-                            <h1 className="font-serif text-xl md:text-2xl font-bold text-gray-900 mb-1">
+                            <h1 className="font-serif text-xl md:text-2xl font-bold text-foreground mb-1">
                                 ХРАМ ПРЕПОДОБНОГО
                             </h1>
-                            <div className="font-serif text-xl md:text-2xl font-bold text-gray-900 tracking-wider">
+                            <div className="font-serif text-xl md:text-2xl font-bold text-foreground tracking-wider">
                                 СЕРАФИМА САРОВСКОГО
                             </div>
                         </div>
@@ -52,25 +52,25 @@ const Header = () => {
                         <div className="hidden md:flex flex-wrap justify-center lg:justify-end gap-x-4 md:gap-x-6 gap-y-3">
                             <Link
                                 href="/schedule"
-                                className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 px-2 hover:underline"
+                                className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 px-2 hover:underline"
                             >
                                 Расписание
                             </Link>
                             <Link
                                 href="/requests"
-                                className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 px-2 hover:underline"
+                                className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 px-2 hover:underline"
                             >
                                 Требы и целевые сборы
                             </Link>
                             <Link
                                 href="/activities"
-                                className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 px-2 hover:underline"
+                                className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 px-2 hover:underline"
                             >
                                 Деятельность
                             </Link>
                             <Link
                                 href="/donate"
-                                className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 px-2 hover:underline"
+                                className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 px-2 hover:underline"
                             >
                                 Помочь храму
                             </Link>
@@ -89,33 +89,33 @@ const Header = () => {
                         </div>
 
                         {isOpen && (
-                            <div className="md:hidden mt-4 pb-4 border-t border-gray-300 dark:border-gray-800 pt-4">
+                            <div className="md:hidden mt-4 pb-4 border-t border-church-gold/30 dark:border-church-gold/50 pt-4">
                                 <div className="flex flex-col space-y-4">
                                     <Link
                                         href="/schedule"
                                         onClick={handleClick}
-                                        className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 hover:underline"
+                                        className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 hover:underline"
                                     >
                                         Расписание
                                     </Link>
                                     <Link
                                         href="/requests"
                                         onClick={handleClick}
-                                        className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 hover:underline"
+                                        className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 hover:underline"
                                     >
                                         Требы и целевые сборы
                                     </Link>
                                     <Link
                                         href="/activities"
                                         onClick={handleClick}
-                                        className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 hover:underline"
+                                        className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 hover:underline"
                                     >
                                         Деятельность
                                     </Link>
                                     <Link
                                         href="/donate"
                                         onClick={handleClick}
-                                        className="font-sans text-base text-gray-700 hover:text-church-red transition-colors py-1 hover:underline"
+                                        className="font-sans text-base text-foreground/80 hover:text-church-red transition-colors py-1 hover:underline"
                                     >
                                         Помочь храму
                                     </Link>
