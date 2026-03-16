@@ -15,6 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="ru" suppressHydrationWarning>
+            <head className={inter.className}>
+                <meta charSet='UTF-8' />
+                <link rel="icon" type="image/jpeg" href="hram.jpg" />
+                <meta name="author" content="Семченко Александр" />
+            </head>
             <body className={inter.className}>
                 <ThemeProvider
                     attribute="class"

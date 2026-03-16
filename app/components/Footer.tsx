@@ -1,8 +1,27 @@
 import { Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
+    const links = [
+        {
+            name: "О храме",
+            link: "/about",
+        },
+        {
+            name: "Расписание богослужений",
+            link: "/shedule",
+        },
+        {
+            name: "Новости",
+            link: "/news",
+        },
+        {
+            name: "Помочь храму",
+            link: "/donate",
+        },
+    ]
+
     return (
-        <footer className="bg-white border-t border-gray-200 mt-16">
+        <footer className="bg-background border-t border-church-gold/60 mt-16 transition-colors duration-300">
             <div className="container mx-auto px-4 py-12">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8">
 
@@ -28,46 +47,16 @@ export default function Footer() {
                             Разделы сайта
                         </h4>
                         <ul className="space-y-3">
-                            <li>
-                                <a
-                                    href="/about"
-                                    className="font-sans text-gray-700 hover:text-church-red transition-colors flex items-center gap-2"
-                                >
-                                    О храме
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/schedule"
-                                    className="font-sans text-gray-700 hover:text-church-red transition-colors flex items-center gap-2"
-                                >
-                                    Расписание богослужений
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/news"
-                                    className="font-sans text-gray-700 hover:text-church-red transition-colors flex items-center gap-2"
-                                >
-                                    Новости
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/contacts"
-                                    className="font-sans text-gray-700 hover:text-church-red transition-colors flex items-center gap-2"
-                                >
-                                    Контакты
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/donate"
-                                    className="font-sans text-gray-700 hover:text-church-red transition-colors flex items-center gap-2"
-                                >
-                                    Помочь храму
-                                </a>
-                            </li>
+                            {links.map((link, idx) => (
+                                <li key={idx}>
+                                    <a
+                                        href={link.link}
+                                        className="font-sans text-gray-700 hover:text-church-red transition-colors flex items-center gap-2"
+                                    >
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -113,6 +102,6 @@ export default function Footer() {
 
                 </div>
             </div>
-        </footer>
+        </footer >
     )
 }
