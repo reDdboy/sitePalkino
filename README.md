@@ -1,49 +1,41 @@
 # sitePalkino
 Сайт храма Серафима Саровского Антроповский район село Палкино
 
-Предпологаемая архитектура:
-sitepalkino/
-│
-├── app/                    # Все страницы сайта
-│   ├── layout.tsx         # Главный layout (шапка + подвал)
-│   ├── page.tsx           # Главная страница
-│   ├── globals.css        # Стили всего сайта
-│   │
-│   ├── about/             # О храме
-│   │   └── page.tsx
-│   │
-│   ├── schedule/          # Расписание
-│   │   └── page.tsx
-│   │
-│   ├── news/              # Новости
-│   │   └── page.tsx
-│   │
-│   ├── contacts/          # Контакты
-│   │   └── page.tsx
-│   │
-│   └── wrong.tsx      # Страница 404
-│
-├── components/            # Все компоненты React
-│   ├── Header.tsx        # Шапка сайта
-│   ├── Footer.tsx        # Подвал сайта
-│   ├── Navbar.tsx        # Навигация
-│   ├── ScheduleCard.tsx  # Карточка расписания
-│   ├── NewsCard.tsx      # Карточка новости
-│   └── Button.tsx        # Кнопка
-│
-├── public/               # Статические файлы
-│   └── images/          # Картинки
-│       ├── church.jpg
-│       └── icon.png
-│
-├── lib/                 # Вспомогательные функции
-│   └── utils.ts         # Общие утилиты
-│
-├── types/               # Типы TypeScript (опционально)
-│   └── index.ts
-│
-├── tailwind.config.ts   # Настройки Tailwind
-├── postcss.config.js    # Настройки PostCSS
-├── next.config.js       # Настройки Next.js
-├── tsconfig.json        # Настройки TypeScript
-└── package.json         # Зависимости
+```
+├── 📁 app
+│   ├── 📁 about
+│   │   └── 📄 page.tsx
+│   ├── 📁 components
+│   │   ├── 📁 ThemeProvider
+│   │   │   └── 📄 ThemeProvider.tsx
+│   │   ├── 📁 ThemeToggle
+│   │   │   └── 📄 ThemeToggle.tsx
+│   │   ├── 📄 Button.tsx
+│   │   ├── 📄 Footer.tsx
+│   │   ├── 📄 Header.tsx
+│   │   ├── 📄 Navbar.tsx
+│   │   ├── 📄 NewsCard.tsx
+│   │   └── 📄 SheduleCard.tsx
+│   ├── 📁 contacts
+│   │   └── 📄 page.tsx
+│   ├── 📁 news
+│   │   └── 📄 page.tsx
+│   ├── 📁 shedule
+│   │   └── 📄 page.tsx
+│   ├── 📁 styles
+│   │   └── 🎨 globals.css
+│   ├── 📄 layout.tsx
+│   ├── 📄 page.tsx
+│   └── 📄 wrong.tsx
+├── 📁 public
+│   └── 🖼️ hram.jpg
+├── ⚙️ .gitignore
+├── 📝 README.md
+├── 📄 next-env.d.ts
+├── 📄 next.config.js
+├── ⚙️ package.json
+├── 📄 postcss.config.js
+└── ⚙️ tsconfig.json
+```
+
+---
