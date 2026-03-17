@@ -28,10 +28,10 @@ export default function Footer() {
                     {/* Левая часть: информация о храме */}
                     <div className="flex-1">
                         <div className="mb-4">
-                            <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+                            <h3 className="font-serif text-xl font-bold color-church-light mb-2">
                                 © {new Date().getFullYear()}. ХРАМ ПРЕПОДОБНОГО
                             </h3>
-                            <div className="font-serif text-xl font-bold text-gray-900 tracking-wider">
+                            <div className="font-serif text-xl font-bold color-church-light tracking-wider">
                                 СЕРАФИМА САРОВСКОГО
                             </div>
                         </div>
