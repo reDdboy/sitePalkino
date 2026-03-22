@@ -46,7 +46,7 @@ const Header = () => {
                                     alt="Храм Серафима Саровского"
                                     fill
                                     sizes="(max-width: 640px) 40px, (max-width: 768px) 56px, (max-width: 1024px) 80px, 96px"
-                                    className="object-cover"
+                                    className="object-fill"
                                     priority
                                 />
                             </div>
