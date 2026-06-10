@@ -31,6 +31,13 @@ const Header = () => {
         { name: "Помочь храму", link: "/donate" },
     ]
 
+    const linksAbout = [
+        { name: "Помочь храму", link: "/donate" },
+        { name: "Помочь храму", link: "/donate" },
+        { name: "Помочь храму", link: "/donate" },
+        { name: "Помочь храму", link: "/donate" },
+    ]
+
     return (
         <>
             <header className="bg-background border-b border-church-gold/40 dark:border-church-gold/60 py-2 sm:py-3 transition-colors duration-300 sticky top-0 z-50">
@@ -46,7 +53,7 @@ const Header = () => {
                                             alt="Храм Серафима Саровского"
                                             fill
                                             sizes="(max-width: 640px) 40px, (max-width: 768px) 56px, (max-width: 1024px) 80px, 96px"
-                                            className="object-cover"
+                                            // className="object-cover"
                                             priority
                                         />
                                     </a>
@@ -63,7 +70,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        {/* Десктопное меню - видно только на lg+ */}
+                        {/* Десктопное меню*/}
                         <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
                             <nav className="flex items-center gap-4 xl:gap-6">
                                 {links.map((link, idx) => (
@@ -77,6 +84,14 @@ const Header = () => {
                                 ))}
                             </nav>
                             <ThemeToggle />
+
+                            <button
+                                className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-lg transition-colors relative z-50"
+                                onClick={() => setIsOpen(!isOpen)}
+                                aria-label="Меню"
+                            >
+                                {isOpen ? <X size={20} /> : <Menu size={20} />}
+                            </button>
                         </div>
 
                         {/* Мобильное меню - кнопка */}
@@ -94,8 +109,54 @@ const Header = () => {
                 </div>
             </header>
 
+            {/* Десктопное выдвижное меню */}
+            <div
+                className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}
+                onClick={handleClick}
+            />
+            <div
+                className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
+            >
+                <div className="flex items-center justify-between p-4 border-b border-church-gold/30">
+                    <h2 className="font-serif text-lg font-semibold text-foreground">Меню</h2>
+                    <button
+                        onClick={handleClick}
+                        className="p-2 hover:bg-church-gold/10 rounded-lg transition-colors"
+                    >
+                        <X size={20} />
+                    </button>
+                </div>
+                <div className="flex flex-col p-4 gap-2">
+                    {links.map((link, idx) => (
+                        <Link
+                            key={idx}
+                            href={link.link}
+                            onClick={handleClick}
+                            className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+
+                    <h2 className='font-semibold text-church-brown'>О Храме</h2>
+
+                    {linksAbout.map((link, idx) => (
+                        <Link
+                            key={idx}
+                            href={link.link}
+                            onClick={handleClick}
+                            className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
             {/* Мобильное выдвижное меню */}
-            <div className="lg:hidden">
+            < div className="lg:hidden" >
                 <div
                     className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                         }`}
@@ -125,9 +186,22 @@ const Header = () => {
                                 {link.name}
                             </Link>
                         ))}
+
+                        <h2 className='font-semibold text-church-brown'>О Храме</h2>
+
+                        {linksAbout.map((link, idx) => (
+                            <Link
+                                key={idx}
+                                href={link.link}
+                                onClick={handleClick}
+                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 };

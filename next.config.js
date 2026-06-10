@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'standalone',
+    output: 'export',
     reactStrictMode: true, // Включаем статический экспорт
     images: {
         domains: [],
-        unoptimized: false, // Отключаем оптимизацию изображений Next.js
+        unoptimized: true, // Отключаем оптимизацию изображений Next.js
     },
 
 }
