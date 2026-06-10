@@ -8,7 +8,7 @@ export default function Footer() {
         },
         {
             name: "Расписание богослужений",
-            link: "/shedule",
+            link: "/schedule",
         },
         {
             name: "Новости",

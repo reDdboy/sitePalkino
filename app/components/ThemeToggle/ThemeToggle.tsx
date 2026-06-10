@@ -14,7 +14,7 @@ function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <div className="w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
+            <div className="w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-[12px]"></div>
         )
     }
 
@@ -25,7 +25,7 @@ function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="relative w-10 h-10 rounded-lg bg-white dark:bg-black border-2 border-gray-800 dark:border-gray-200 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-300"
+            className="relative w-10 h-10 rounded-[12px] bg-white dark:bg-black border-2 border-gray-800 dark:border-gray-200 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-300"
             aria-label="Переключить тему"
         >
             <div className="relative w-5 h-5">

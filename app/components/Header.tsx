@@ -86,7 +86,7 @@ const Header = () => {
                             <ThemeToggle />
 
                             <button
-                                className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-lg transition-colors relative z-50"
+                                className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors relative z-50"
                                 onClick={() => setIsOpen(!isOpen)}
                                 aria-label="Меню"
                             >
@@ -98,7 +98,7 @@ const Header = () => {
                         <div className="lg:hidden flex items-center gap-1 sm:gap-2 flex-shrink-0">
                             <ThemeToggle />
                             <button
-                                className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-lg transition-colors relative z-50"
+                                className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors relative z-50"
                                 onClick={() => setIsOpen(!isOpen)}
                                 aria-label="Меню"
                             >
@@ -116,14 +116,14 @@ const Header = () => {
                 onClick={handleClick}
             />
             <div
-                className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`fixed top-0 right-0 h-full w-60 sm:w-70 bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
             >
                 <div className="flex items-center justify-between p-4 border-b border-church-gold/30">
                     <h2 className="font-serif text-lg font-semibold text-foreground">Меню</h2>
                     <button
                         onClick={handleClick}
-                        className="p-2 hover:bg-church-gold/10 rounded-lg transition-colors"
+                        className="p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors"
                     >
                         <X size={20} />
                     </button>
@@ -134,7 +134,7 @@ const Header = () => {
                             key={idx}
                             href={link.link}
                             onClick={handleClick}
-                            className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                            className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
                         >
                             {link.name}
                         </Link>
@@ -147,7 +147,7 @@ const Header = () => {
                             key={idx}
                             href={link.link}
                             onClick={handleClick}
-                            className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                            className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
                         >
                             {link.name}
                         </Link>
@@ -170,7 +170,7 @@ const Header = () => {
                         <h2 className="font-serif text-lg font-semibold text-foreground">Меню</h2>
                         <button
                             onClick={handleClick}
-                            className="p-2 hover:bg-church-gold/10 rounded-lg transition-colors"
+                            className="p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors"
                         >
                             <X size={20} />
                         </button>
@@ -181,7 +181,7 @@ const Header = () => {
                                 key={idx}
                                 href={link.link}
                                 onClick={handleClick}
-                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
                             >
                                 {link.name}
                             </Link>
@@ -194,7 +194,7 @@ const Header = () => {
                                 key={idx}
                                 href={link.link}
                                 onClick={handleClick}
-                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-lg hover:pl-6"
+                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
                             >
                                 {link.name}
                             </Link>
