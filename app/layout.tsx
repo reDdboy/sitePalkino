@@ -10,6 +10,14 @@ const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 export const metadata: Metadata = {
     title: 'Храм Преподобного Серафима Саровского',
     description: 'Официальный сайт храма Серафима Саровского',
+    keywords: 'храм, Серафим Саровский, храм Палкино, Палкино, православие',
+    authors: [{ name: 'Храмы Прп. Серафима Саровского и Св. Николая Чудотворца на Дору' }],
+    openGraph: {
+        title: 'Храм Преподобного Серафима Саровского',
+        description: 'Официальный сайт храма в селе Палкино',
+        type: 'website',
+        locale: 'ru_RU',
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -93,11 +93,46 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <MapPin className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
                                 <div className="font-sans text-gray-600">
-                                    село Палкино,<br />
-                                    Антроповский район
+                                    <a className='hover:text-church-red'
+                                        href='https://yandex.ru/maps/?ll=42.939254%2C58.245402&mode=poi&poi%5Bpoint%5D=42.938343%2C58.247226&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1374904968&z=16.6'
+                                        rel='noopener noreferrer'
+                                        target='_blank'>
+                                        село Палкино,<br />
+                                        Антроповский район
+                                    </a>
                                 </div>
                             </li>
                         </ul>
+                    </div>
+
+                    {/* Сообщества */}
+                    <div className="flex-1 w-full">
+                        <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
+                            Сообщества
+                        </h4>
+
+                        <div className="border border-church-gold/60 rounded-[12px] p-5 transition-all duration-300 hover:shadow-md">
+                            <div className="space-y-2">
+                                <a
+                                    href="https://vk.com/hrampalkino"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 px-4 py-2.5 text-background rounded-xl text-sm font-medium bg-church-brown
+                                    hover:bg-church-brown/90 transition-colors w-full"
+                                >
+                                    Группа ВКонтакте
+                                </a>
+
+                                {/* <a
+                                    href="https://t.me"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 px-4 py-2.5 text-background rounded-xl text-sm font-medium bg-church-brown hover:bg-church-brown/90 transition-colors w-full"
+                                >
+                                    Канал в Telegram
+                                </a> */}
+                            </div>
+                        </div>
                     </div>
 
                 </div>
