@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { scheduleData } from "../data/schedule"
 
-export default function ScheduleCard({ limit }: { limit?: number }) {
+export default function ScheduleCard({ limit, showLink = false }: { limit?: number; showLink?: boolean }) {
     const monthMap: Record<string, number> = {
         'января': 0,
         'февраля': 1,
@@ -82,9 +82,11 @@ export default function ScheduleCard({ limit }: { limit?: number }) {
                     </div>
                 ))}
             </div>
-            <Link href="/schedule" className="inline-block mt-4 text-church-brown hover:underline text-sm">
-                Полное расписание →
-            </Link>
+            {showLink && (
+                <Link href="/schedule" className="inline-block mt-4 text-church-brown hover:underline text-sm">
+                    Полное расписание →
+                </Link>
+            )}
         </div>
     )
 }

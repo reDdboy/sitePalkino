@@ -57,12 +57,8 @@ export default function HomePage() {
 
                 {/* Расписание и новости в две колонки */}
                 <div className="grid md:grid-cols-2 gap-8">
-                    <ScheduleCard limit={4} />
-                    <NewsCard limit={4} />
-                </div>
-
-                <div className="">
-
+                    <ScheduleCard limit={4} showLink={true} />
+                    <NewsCard limit={4} showLink={true} />
                 </div>
             </div>
         </div>

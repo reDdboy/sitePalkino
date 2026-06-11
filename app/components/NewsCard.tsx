@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { newsData } from "../data/news"
 
-export default function NewsCard({ limit }: { limit?: number }) {
+export default function NewsCard({ limit, showLink = false }: { limit?: number; showLink?: boolean }) {
     const newsToShow = limit ? newsData.slice(0, limit) : newsData;
 
     return (
@@ -16,9 +16,11 @@ export default function NewsCard({ limit }: { limit?: number }) {
                     </div>
                 ))}
             </div>
-            <Link href="/news" className="inline-block mt-4 text-church-brown hover:underline text-sm">
-                Все новости →
-            </Link>
+            {showLink && (
+                <Link href="/news" className="inline-block mt-4 text-church-brown hover:underline text-sm">
+                    Все новости →
+                </Link>
+            )}
         </div>
     )
 }
