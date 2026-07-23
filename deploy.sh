@@ -1,5 +1,3 @@
-#!/bin/bash
-
 source .env
 
 echo "📦 Очистка старой папки out..."
