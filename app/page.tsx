@@ -4,6 +4,7 @@ import { scheduleData } from "./data/schedule";
 import { newsData } from "./data/news"
 import ScheduleCard from "./components/ScheduleCard";
 import NewsCard from "./components/NewsCard";
+import AboutCard from "./components/AboutCard";
 
 export default function HomePage() {
     return (
@@ -31,20 +32,7 @@ export default function HomePage() {
             <div className="container mx-auto px-4 py-12">
                 {/* О храме + фото */}
                 <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                    <div>
-                        <h3 className="font-serif text-2xl font-bold text-foreground mb-4">О храме</h3>
-                        <p className="text-foreground/80 leading-relaxed mb-4">
-                            Храм Преподобного Серафима Саровского расположен в живописном селе Палкино
-                            Антроповского района Костромской области.
-                        </p>
-                        <p className="text-foreground/80 leading-relaxed">
-                            Наш храм открыт для всех, кто ищет духовного утешения и хочет
-                            прикоснуться к православным святыням.
-                        </p>
-                        <Link href="/about" className="inline-block mt-4 text-church-brown hover:underline">
-                            Подробнее о храме →
-                        </Link>
-                    </div>
+                    <AboutCard limit={true} />
                     <div className="relative h-80 md:h-100 rounded-[12px] overflow-hidden shadow-lg">
                         <Image
                             src="/hram.jpg"

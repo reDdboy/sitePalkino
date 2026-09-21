@@ -1,41 +1,65 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import ThemeToggle from './ThemeToggle/ThemeToggle'
+
+type NavLink = {
+    name: string
+    link: string
+}
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [isAboutOpen, setIsAboutOpen] = useState(false)
+    const aboutRef = useRef<HTMLDivElement>(null)
 
-    const handleClick = () => {
-        setIsOpen(false)
-    }
+    const handleClose = () => setIsOpen(false)
 
     useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'unset'
-        }
+        document.body.style.overflow = isOpen ? 'hidden' : 'unset'
         return () => {
             document.body.style.overflow = 'unset'
         }
     }, [isOpen])
 
-    const links = [
-        { name: "Расписание", link: "/schedule" },
-        { name: "Требы", link: "/requests" },
-        { name: "Деятельность", link: "/activities" },
-        { name: "Помочь храму", link: "/donate" },
+    // Закрытие dropdown по клику вне
+    useEffect(() => {
+        const onClickOutside = (e: MouseEvent) => {
+            if (aboutRef.current && !aboutRef.current.contains(e.target as Node)) {
+                setIsAboutOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', onClickOutside)
+        return () => document.removeEventListener('mousedown', onClickOutside)
+    }, [])
+
+    // Закрытие по Esc
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsAboutOpen(false)
+                setIsOpen(false)
+            }
+        }
+        document.addEventListener('keydown', onKey)
+        return () => document.removeEventListener('keydown', onKey)
+    }, [])
+
+    const links: NavLink[] = [
+        { name: 'Расписание', link: '/schedule' },
+        { name: 'Требы', link: '/requests' },
+        { name: 'Деятельность', link: '/activities' },
+        { name: 'Помочь храму', link: '/donate' },
     ]
 
-    const linksAbout = [
-        { name: "Заглушка", link: "/" },
-        { name: "Заглушка", link: "/" },
-        { name: "Заглушка", link: "/" },
-        { name: "Заглушка", link: "/" },
+    const linksAbout: NavLink[] = [
+        { name: 'Заглушка', link: '/' },
+        { name: 'Заглушка', link: '/' },
+        { name: 'Заглушка', link: '/' },
+        { name: 'Заглушка', link: '/' },
     ]
 
     return (
@@ -46,18 +70,19 @@ const Header = () => {
                         {/* Левая часть: фото и название */}
                         <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
                             <div className="flex-shrink-0">
-                                <div className="relative w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-md border-2 border-church-gold/30">
-                                    <a href='/'>
-                                        <Image
-                                            src="/hram.jpg"
-                                            alt="Храм Серафима Саровского"
-                                            fill
-                                            sizes="(max-width: 640px) 40px, (max-width: 768px) 56px, (max-width: 1024px) 80px, 96px"
-                                            // className="object-cover"
-                                            priority
-                                        />
-                                    </a>
-                                </div>
+                                <Link
+                                    href="/"
+                                    className="relative block w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-md border-2 border-church-gold/30"
+                                >
+                                    <Image
+                                        src="/hram.jpg"
+                                        alt="Храм Серафима Саровского"
+                                        fill
+                                        sizes="(max-width: 640px) 40px, (max-width: 768px) 56px, (max-width: 1024px) 80px, 96px"
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </Link>
                             </div>
 
                             <div className="text-left min-w-0 flex-1">
@@ -70,37 +95,65 @@ const Header = () => {
                             </div>
                         </div>
 
-                        {/* Десктопное меню*/}
+                        {/* Десктопное меню */}
                         <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
                             <nav className="flex items-center gap-4 xl:gap-6">
-                                {links.map((link, idx) => (
+                                {links.map((link) => (
                                     <Link
-                                        key={idx}
+                                        key={link.link}
                                         href={link.link}
-                                        className="font-sans text-base lg:text-sm xl:text-base text-foreground/80 hover:text-church-red transition-colors py-2 whitespace-nowrap"
+                                        className="font-sans text-sm xl:text-base text-foreground/80 hover:text-church-red transition-colors py-2 whitespace-nowrap"
                                     >
                                         {link.name}
                                     </Link>
                                 ))}
+
+                                {/* Dropdown меню */}
+                                <div className="relative" ref={aboutRef}>
+                                    <button
+                                        onClick={() => setIsAboutOpen((v) => !v)}
+                                        aria-expanded={isAboutOpen}
+                                        aria-haspopup="true"
+                                        className="flex items-center gap-1 font-sans text-sm xl:text-base text-foreground/80 hover:text-church-red transition-colors py-2 whitespace-nowrap"
+                                    >
+                                        О Храме
+                                        <ChevronDown
+                                            size={16}
+                                            className={`transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''
+                                                }`}
+                                        />
+                                    </button>
+
+                                    <div
+                                        className={`absolute top-full right-0 mt-2 w-64 py-4 bg-background border border-church-gold/30 rounded-[12px] shadow-xl transition-all duration-200 origin-top-right ${isAboutOpen
+                                            ? 'opacity-100 visible scale-100'
+                                            : 'opacity-0 invisible scale-95'
+                                            }`}
+                                    >
+                                        {linksAbout.map((link, idx) => (
+                                            <Link
+                                                key={`${link.link}-${idx}`}
+                                                href={link.link}
+                                                onClick={() => setIsAboutOpen(false)}
+                                                className="block font-sans text-sm text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-colors py-2 px-4"
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
                             </nav>
                             <ThemeToggle />
-
-                            <button
-                                className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors relative z-50"
-                                onClick={() => setIsOpen(!isOpen)}
-                                aria-label="Меню"
-                            >
-                                {isOpen ? <X size={20} /> : <Menu size={20} />}
-                            </button>
                         </div>
 
-                        {/* Мобильное меню - кнопка */}
+                        {/* Мобильное меню: кнопка */}
                         <div className="lg:hidden flex items-center gap-1 sm:gap-2 flex-shrink-0">
                             <ThemeToggle />
                             <button
                                 className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors relative z-50"
-                                onClick={() => setIsOpen(!isOpen)}
-                                aria-label="Меню"
+                                onClick={() => setIsOpen((v) => !v)}
+                                aria-label={isOpen ? 'Закрыть меню' : 'Открыть меню'}
+                                aria-expanded={isOpen}
                             >
                                 {isOpen ? <X size={20} /> : <Menu size={20} />}
                             </button>
@@ -109,101 +162,60 @@ const Header = () => {
                 </div>
             </header>
 
-            {/* Десктопное выдвижное меню */}
             <div
-                className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
-                onClick={handleClick}
+                onClick={handleClose}
+                aria-hidden="true"
             />
-            <div
-                className={`fixed top-0 right-0 h-full w-60 sm:w-70 bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+            <aside
+                className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
+                aria-hidden={!isOpen}
             >
                 <div className="flex items-center justify-between p-4 border-b border-church-gold/30">
-                    <h2 className="font-serif text-lg font-semibold text-foreground">Меню</h2>
+                    <h2 className="font-serif text-lg font-semibold text-foreground px-4">
+                        Меню
+                    </h2>
                     <button
-                        onClick={handleClick}
+                        onClick={handleClose}
                         className="p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors"
+                        aria-label="Закрыть меню"
                     >
                         <X size={20} />
                     </button>
                 </div>
-                <div className="flex flex-col p-4 gap-2">
-                    {links.map((link, idx) => (
+
+                <nav className="flex flex-col p-4 gap-2 overflow-y-auto">
+                    {links.map((link) => (
                         <Link
-                            key={idx}
+                            key={link.link}
                             href={link.link}
-                            onClick={handleClick}
+                            onClick={handleClose}
                             className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
                         >
                             {link.name}
                         </Link>
                     ))}
 
-                    <h2 className='font-semibold text-church-brown'>О Храме</h2>
+                    <h3 className="font-semibold italic text-lg pt-6 text-church-brown px-4">
+                        О Храме
+                    </h3>
 
                     {linksAbout.map((link, idx) => (
                         <Link
-                            key={idx}
+                            key={`${link.link}-${idx}`}
                             href={link.link}
-                            onClick={handleClick}
+                            onClick={handleClose}
                             className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
                         >
                             {link.name}
                         </Link>
                     ))}
-                </div>
-            </div>
-
-            {/* Мобильное выдвижное меню */}
-            < div className="lg:hidden" >
-                <div
-                    className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                        }`}
-                    onClick={handleClick}
-                />
-                <div
-                    className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
-                        }`}
-                >
-                    <div className="flex items-center justify-between p-4 border-b border-church-gold/30">
-                        <h2 className="font-serif text-lg font-semibold text-foreground">Меню</h2>
-                        <button
-                            onClick={handleClick}
-                            className="p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors"
-                        >
-                            <X size={20} />
-                        </button>
-                    </div>
-                    <div className="flex flex-col p-4 gap-2">
-                        {links.map((link, idx) => (
-                            <Link
-                                key={idx}
-                                href={link.link}
-                                onClick={handleClick}
-                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-
-                        <h2 className='font-semibold text-church-brown'>О Храме</h2>
-
-                        {linksAbout.map((link, idx) => (
-                            <Link
-                                key={idx}
-                                href={link.link}
-                                onClick={handleClick}
-                                className="font-sans text-base sm:text-lg text-foreground/80 hover:text-church-red hover:bg-church-gold/10 transition-all duration-200 py-3 px-4 rounded-[12px] hover:pl-6"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </div >
+                </nav>
+            </aside>
         </>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header
