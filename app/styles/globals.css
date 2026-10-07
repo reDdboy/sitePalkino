@@ -1,51 +1,37 @@
 @import "tailwindcss";
 
 :root {
-    /* Фон и текст */
-    --color-background: #faf6ee;
-    /* тёплый кремовый, почти белый */
-    --color-foreground: #1f1a15;
-    /* почти чёрный с тёплым подтоном */
+    /* Основной фон */
+    --color-background: #f7f1e7;
+    /* мягкий тёплый крем */
+    --color-foreground: #1b1714;
+    /* тёмный коричневый текст */
 
     /* Акценты */
-    --color-church-brown: #7a4a1f;
-    /* заголовки, подзаголовки */
-    --color-church-gold: #b8860b;
-    /* золото — только на акцентах */
-    --color-church-red: #8b1a1a;
-    /* hover ссылок, важное */
+    --color-church-brown: #6f4328;
+    --color-church-gold: #bf8d3a;
+    --color-church-red: #8f2d2f;
 
-    /* Дополнительные (были только в dark) */
-    --color-church-gray: #6b5d4f;
-    /* вторичный текст */
-    --color-church-light: #ffffff;
-    /* приподнятые слои / карточки */
-    --color-border: #e0d5c2;
-    /* нейтральная тёплая граница */
+    /* Дополнительные */
+    --color-church-gray: #72665d;
+    --color-church-light: #fffaf2;
+    --color-border: #d9c5a3;
 }
 
 .dark {
-    /* Фон и текст */
-    --color-background: #14110f;
-    /* почти чёрный, чуть тёплый */
-    --color-foreground: #ebe3d5;
-    /* тёплый кремовый */
+    /* Основной фон */
+    --color-background: #17110f;
+    --color-foreground: #f1e7d8;
 
     /* Акценты */
-    --color-church-brown: #c9a47a;
-    /* осветлён для контраста */
-    --color-church-gold: #e8c468;
-    /* золото светится на нейтральном фоне */
-    --color-church-red: #d95454;
-    /* светлее — WCAG AA на тёмном */
+    --color-church-brown: #d9ad74;
+    --color-church-gold: #dfb968;
+    --color-church-red: #d86a5f;
 
     /* Дополнительные */
-    --color-church-gray: #a89c8a;
-    /* вторичный текст */
-    --color-church-light: #1e1a17;
-    /* карточки — светлее фона */
-    --color-border: #2e2925;
-    /* нейтральная граница */
+    --color-church-gray: #b7a28d;
+    --color-church-light: #ebd7ae;
+    --color-border: #3b2d28;
 }
 
 @theme {

@@ -163,7 +163,7 @@ const Header = () => {
             </header>
 
             <div
-                className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                className={`fixed inset-0 bg-foreground/40 backdrop-blur-sm z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
                 onClick={handleClose}
                 aria-hidden="true"

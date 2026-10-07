@@ -19,13 +19,13 @@ export default function HomePage() {
                     priority
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                    <h1 className="font-serif text-3xl md:text-5xl font-bold text-white mb-2">
+                    <h1 className="font-serif text-3xl md:text-5xl font-bold text-church-light mb-2">
                         ХРАМ ПРЕПОДОБНОГО
                     </h1>
                     <h2 className="font-serif text-2xl md:text-4xl font-bold text-church-gold">
                         СЕРАФИМА САРОВСКОГО ЧУДОТВОРЦА
                     </h2>
-                    <p className="text-white/80 mt-4">село Палкино, Антроповский район</p>
+                    <p className="text-church-light/80 mt-4">село Палкино, Антроповский район</p>
                 </div>
             </div>
 
