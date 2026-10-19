@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { scheduleData } from "./data/schedule";
 import { newsData } from "./data/news"
 import ScheduleCard from "./components/ScheduleCard";
@@ -30,7 +31,7 @@ export default function HomePage() {
             </div>
 
             <div className="container mx-auto px-4 py-12">
-                {/* О храме + фото */}
+                {/* Раздел О храме + фото */}
                 <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                     <AboutCard limit={true} />
                     <div className="relative h-80 md:h-100 rounded-[12px] overflow-hidden shadow-lg">
@@ -48,6 +49,15 @@ export default function HomePage() {
                     <ScheduleCard limit={4} showLink={true} />
                     <NewsCard limit={4} showLink={true} />
                 </div>
+
+                {/*
+                <div className="" id="widget">
+                    <Script
+                        src="https://widget.dybka.ru/slider/embed.php"
+                        strategy="beforeInteractive"
+                        defer={false}
+                    />
+                </div> */}
             </div>
         </div>
     )

@@ -25,7 +25,7 @@ function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="relative w-10 h-10 rounded-[12px] bg-church-light border-2 border-church-gold/40 flex items-center justify-center hover:bg-church-gold/10 transition-all duration-300"
+            className="relative w-10 h-10 rounded-[12px] bg-church-light dark:bg-church-gold/10 border-2 border-church-gold/40 flex items-center justify-center hover:bg-church-gold/10 dark:hover:bg-church-light/20 transition-all duration-300"
             aria-label="Переключить тему"
         >
             <div className="relative w-5 h-5 text-church-brown">

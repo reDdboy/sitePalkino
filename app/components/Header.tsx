@@ -56,10 +56,10 @@ const Header = () => {
     ]
 
     const linksAbout: NavLink[] = [
-        { name: 'Заглушка', link: '/' },
-        { name: 'Заглушка', link: '/' },
-        { name: 'Заглушка', link: '/' },
-        { name: 'Заглушка', link: '/' },
+        { name: 'Духовенство', link: '/clergy' },
+        { name: 'Таинства и требы', link: '/sacraments' },
+        { name: 'История прихода', link: '/history' },
+        { name: 'Контакты', link: '/contacts' },
     ]
 
     return (
