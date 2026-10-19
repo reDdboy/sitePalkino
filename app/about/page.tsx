@@ -1,4 +1,3 @@
-import Image from "next/image";
 import AboutCard from "../components/AboutCard";
 
 export default function About() {
@@ -8,19 +7,8 @@ export default function About() {
                 О храме
             </h1>
 
-            <div className="grid grid-cols-2 gap-12">
-                <div className="max-w-4xl mx-auto">
-                    <AboutCard limit={false} />
-                </div>
-
-                <div className="relative h-80 md:h-100 rounded-[12px] overflow-hidden shadow-lg">
-                    <Image
-                        src="/hram.jpg"
-                        alt="Храм"
-                        fill
-                        className="object-cover"
-                    />
-                </div>
+            <div className="max-w-4xl mx-auto">
+                <AboutCard limit={false} />
             </div>
         </div>
     )
