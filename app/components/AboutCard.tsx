@@ -2,7 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 
 export default function AboutCard({ limit = false }: { limit?: boolean }) {
-    // Блоки истории для чередования с фото
     const historyBlocks = [
         {
             text: (
@@ -23,7 +22,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/about/main.jpg", // замените на своё фото
+            image: "/about/main.jpg",
             imageAlt: "Церковь Николо-Дор",
         },
         {
@@ -50,7 +49,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/about/2.jpg", // замените на своё фото
+            image: "/about/2.jpg",
             imageAlt: "Резьба и иконостас",
         },
         {
@@ -73,7 +72,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/about/3.jpg", // замените на своё фото
+            image: "/about/3.jpg",
             imageAlt: "Церковь в годы советской власти",
         },
         {
@@ -94,7 +93,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/news/4/main.jpg", // замените на своё фото
+            image: "/news/4/main.jpg",
             imageAlt: "Колокольня церкви",
         },
         {
@@ -119,7 +118,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/news/5/main.jpg", // замените на своё фото
+            image: "/news/5/main.jpg",
             imageAlt: "Разрушение колокольни",
         },
         {
@@ -143,7 +142,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/news/6/main.jpg", // замените на своё фото
+            image: "/news/6/main.jpg",
             imageAlt: "Руины церкви",
         },
         {
@@ -167,7 +166,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
                     </p>
                 </>
             ),
-            image: "/news/7/main.jpg", // замените на своё фото
+            image: "/news/7/main.jpg",
             imageAlt: "Новая церковь Серафима Саровского",
         },
     ]
@@ -185,7 +184,6 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
         </>
     )
 
-    // Рендер истории с чередованием фото
     const renderFullHistory = () => (
         <div className="space-y-12">
             {historyBlocks.map((block, index) => {

@@ -6,6 +6,7 @@ import { newsData } from "./data/news"
 import ScheduleCard from "./components/ScheduleCard";
 import NewsCard from "./components/NewsCard";
 import AboutCard from "./components/AboutCard";
+import Widget from "./components/Widget/Widget";
 
 export default function HomePage() {
     return (
@@ -31,33 +32,32 @@ export default function HomePage() {
             </div>
 
             <div className="container mx-auto px-4 py-12">
-                {/* Раздел О храме + фото */}
+                {/* О храме + фото */}
                 <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                     <AboutCard limit={true} />
                     <div className="relative h-80 md:h-100 rounded-[12px] overflow-hidden shadow-lg">
-                        <Image
-                            src="/hram.jpg"
-                            alt="Храм"
-                            fill
-                            className="object-cover"
-                        />
+                        <Image src="/hram.jpg" alt="Храм" fill className="object-cover" />
                     </div>
                 </div>
 
-                {/* Расписание и новости в две колонки */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    <ScheduleCard limit={4} showLink={true} />
-                    <NewsCard limit={4} showLink={true} />
-                </div>
+                {/* Основной контент */}
+                <div className="grid lg:grid-cols-[1fr_420px] gap-8 items-start">
+                    {/* Левая колонка */}
+                    <div className="space-y-8">
+                        <ScheduleCard limit={4} showLink={true} />
+                        <NewsCard limit={4} showLink={true} />
+                    </div>
 
-                {/*
-                <div className="" id="widget">
-                    <Script
-                        src="https://widget.dybka.ru/slider/embed.php"
-                        strategy="beforeInteractive"
-                        defer={false}
-                    />
-                </div> */}
+                    {/* Правая колонка */}
+                    <aside className="lg:sticky lg:top-40">
+                        <div className="rounded-[12px] border border-church-gold/30 bg-card p-4">
+                            {/* <h3 className="font-serif text-xl font-bold text-church-gold mb-4">
+                                Новомученики и исповедники
+                            </h3> */}
+                            <Widget />
+                        </div>
+                    </aside>
+                </div>
             </div>
         </div>
     )
