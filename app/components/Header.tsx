@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 type NavLink = {
     name: string
@@ -14,6 +15,8 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [isAboutOpen, setIsAboutOpen] = useState(false)
     const aboutRef = useRef<HTMLDivElement>(null)
+    const pathname = usePathname()
+    const isHomePage = pathname === "/"
 
     const handleClose = () => setIsOpen(false)
 
@@ -63,17 +66,25 @@ const Header = () => {
 
     return (
         <>
-            <header className="w-full bg-background/70 backdrop-blur-md border-b border-church-gold/40 dark:border-church-gold/60 py-2 sm:py-3 transition-colors duration-300 fixed top-0 z-50">
+            <header
+                className={`w-full py-2 sm:py-3 backdrop-blur-md border-b
+                        transition-colors duration-300 z-50 ${isHomePage
+                        ? "absolute top-0 left-0 bg-background/40 border-church-gold/30"
+                        : "sticky top-0 bg-background/90 border-church-gold/40"
+                    }`}
+            >
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between gap-2">
                         {/* Левая часть: фото и название */}
                         <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
 
                             <div className="text-left min-w-0 flex-1">
-                                <h1 className="font-serif text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground leading-tight truncate">
-                                    ХРАМ ПРЕПОДОБНОГО<br />
-                                    СЕРАФИМА САРОВСКОГО
-                                </h1>
+                                <a href="/" className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                                    <h1 className="font-serif text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground leading-tight truncate">
+                                        ХРАМ ПРЕПОДОБНОГО<br />
+                                        СЕРАФИМА САРОВСКОГО
+                                    </h1>
+                                </a>
                                 {/* <h1 style={{ fontWeight: 'bold', fontFamily: "serif" }}>
                                     ХРАМ ПРЕПОДОБНОГО<br />
                                     СЕРАФИМА САРОВСКОГО

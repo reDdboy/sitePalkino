@@ -1,52 +1,48 @@
 @import "tailwindcss";
 
 :root {
-    /* Основной фон */
-    --color-background: #f7f1e7;
-    /* мягкий тёплый крем */
-    --color-foreground: #1b1714;
-    /* тёмный коричневый текст */
+    color-scheme: light;
 
-    /* Акценты */
+    --color-background: #f7f1e7;
+    --color-foreground: #1b1714;
+
     --color-church-brown: #6f4328;
     --color-church-gold: #bf8d3a;
     --color-church-red: #8f2d2f;
 
-    /* Дополнительные */
     --color-church-gray: #72665d;
     --color-church-light: #fffaf2;
     --color-border: #d9c5a3;
 }
 
 .dark {
-    /* Основной фон */
+    color-scheme: dark;
+
     --color-background: #17110f;
     --color-foreground: #f1e7d8;
 
-    /* Акценты */
     --color-church-brown: #d9ad74;
     --color-church-gold: #dfb968;
     --color-church-red: #d86a5f;
-    --color-church-dark: #1b1714;
 
-    /* Дополнительные */
     --color-church-gray: #b7a28d;
     --color-church-light: #ebd7ae;
     --color-border: #3b2d28;
 }
 
-@theme {
-    /* Все переменные экспортируются как Tailwind-классы */
+@theme inline {
     --color-background: var(--color-background);
     --color-foreground: var(--color-foreground);
+
     --color-church-brown: var(--color-church-brown);
     --color-church-gold: var(--color-church-gold);
     --color-church-red: var(--color-church-red);
+
     --color-church-gray: var(--color-church-gray);
     --color-church-light: var(--color-church-light);
     --color-border: var(--color-border);
 
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Segoe UI", Roboto, Arial;
     --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 
     --radius-lg: 0.5rem;
@@ -54,17 +50,16 @@
     --radius-sm: 0.25rem;
 }
 
-body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-serif);
-    margin: 0;
-    min-height: 100vh;
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 html {
     scroll-behavior: smooth;
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
+body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    margin: 0;
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}

@@ -41,8 +41,10 @@ export default function Footer() {
                             Храм Преподобного Серафима Саровского в селе Палкино
                             Антроповского района РО «Галичская Епархия РПЦ (МП)»
                         </p>
-                        <ThemeToggle />
-                        <p className="text-foreground/70 mb-6 mt-6 max-w-md">
+                        <div className="mt-6">
+                            <ThemeToggle />
+                        </div>
+                        <p className="text-foreground/70 mt-6 mb-6 max-w-md">
                             © Храм Преподобного Серафима Саровского, {new Date().getFullYear()}
                         </p>
                     </div>
@@ -134,12 +136,31 @@ export default function Footer() {
                                 </div>
                                 <div>
                                     <div className="font-medium text-foreground">ВКонтакте</div>
-                                    <div className="text-xs text-foreground/60">Подписывайтесь на новости</div>
+                                    <div className="text-xs text-foreground/60">Храм Преподобного Серафима Саровского</div>
+                                </div>
+                            </a>
+                            <a
+                                href="https://vk.ru/id871231747"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 px-4 py-3 bg-church-light/70 dark:bg-church-light/5 border border-church-gold/20 rounded-xl hover:bg-church-gold/10 transition-all duration-300 hover:border-church-gold/40 hover:shadow-md group"
+                            >
+                                <div className="w-10 h-10 rounded-full  flex items-center justify-center flex-shrink-0 transition-colors">
+                                    <Image
+                                        src="/vk_logo.svg"
+                                        alt="Логотип ВКонтакте"
+                                        width={52}
+                                        height={52}
+                                        className=""
+                                    />
+                                </div>
+                                <div>
+                                    <div className="font-medium text-foreground">ВКонтакте</div>
+                                    <div className="text-xs text-foreground/60">Церковь Николая Чудотворца на Дору</div>
                                 </div>
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </footer>
