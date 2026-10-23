@@ -4,6 +4,12 @@ import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
 
+const themes = [
+    { value: "light", label: "Светлая" },
+    { value: "dark", label: "Темная" },
+    { value: "system", label: "Системная" }
+]
+
 function ThemeToggle() {
     const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
@@ -14,7 +20,10 @@ function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <div className="w-10 h-10 bg-church-gold/10 rounded-[12px] border border-church-gold/20"></div>
+            <div
+                className="h-10 w-[290px] max-w-full rounded-full border border-church-gold/20 bg-church-gold/10"
+                aria-hidden="true"
+            />
         )
     }
 
@@ -23,16 +32,41 @@ function ThemeToggle() {
     }
 
     return (
-        <button
-            onClick={toggleTheme}
-            className="relative w-10 h-10 rounded-[12px] bg-church-light dark:bg-church-gold/10 border-2 border-church-gold/40 flex items-center justify-center hover:bg-church-gold/10 dark:hover:bg-church-light/20 transition-all duration-300"
-            aria-label="Переключить тему"
+        <div
+            role="group"
+            aria-label="Цветовая тема сайта"
+            className="inline-flex max-w-full items-center
+                rounded-full border border-church-gold/20
+                bg-church-gold/10 p-1"
         >
-            <div className="relative w-5 h-5 text-church-brown">
-                <Sun className={`absolute inset-0 w-full h-full transition-all duration-300 ${theme === "light" ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"}`} />
-                <Moon className={`absolute inset-0 w-full h-full transition-all duration-300 ${theme === "dark" ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`} />
-            </div>
-        </button>
+            {themes.map((item) => {
+                const active = theme === item.value
+
+                return (
+                    <button
+                        key={item.value}
+                        type="button"
+                        onClick={() => setTheme(item.value)}
+                        aria-pressed={active}
+                        className={`
+                            flex-1 whitespace-nowrap rounded-full
+                            px-2 py-2 text-sm font-medium
+                            sm:px-4 sm:text-base
+                            transition-colors duration-200
+                            focus-visible:outline-none
+                            focus-visible:ring-2
+                            focus-visible:ring-church-gold
+                            ${active
+                                ? "bg-church-brown text-church-light shadow-sm"
+                                : "text-foreground/70 hover:bg-church-gold/10 hover:text-foreground"
+                            }
+                        `}
+                    >
+                        {item.label}
+                    </button>
+                )
+            })}
+        </div>
     )
 }
 

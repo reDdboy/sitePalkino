@@ -12,7 +12,7 @@ export default function HomePage() {
     return (
         <div className="bg-background transition-colors duration-300">
             {/* Шапка с фото */}
-            <div className="relative h-[500px] md:h-[600px] overflow-hidden">
+            <div className="relative overflow-hidden" style={{ height: '100vh' }}>
                 <Image
                     src="/hram.jpg"
                     alt="Храм Серафима Саровского"

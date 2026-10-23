@@ -7,7 +7,7 @@ export default function About() {
                 О храме
             </h1>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
                 <AboutCard limit={false} />
             </div>
         </div>

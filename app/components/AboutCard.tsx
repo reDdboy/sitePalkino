@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { ChevronRight } from "lucide-react"
 
 export default function AboutCard({ limit = false }: { limit?: boolean }) {
     const historyBlocks = [
@@ -79,7 +80,7 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
             text: (
                 <>
                     <p className="text-foreground/80 leading-relaxed mb-4">
-                        В 1938–39 году Никольская церковь вновь открылась. Священником в ней стал
+                        В 1938–1939 годах Никольская церковь вновь открылась. Священником в ней стал
                         Рябцовский, прошедший Гулаг. Эрудированный, умный человек, знаток истории,
                         он пользовался большим уважением у прихожан. А когда церковь окончательно
                         закрыли, работал в советских учреждениях, воевал и погиб во время Великой
@@ -223,8 +224,11 @@ export default function AboutCard({ limit = false }: { limit?: boolean }) {
             {limit ? shortText : renderFullHistory()}
 
             {limit && (
-                <Link href="/about" className="inline-block mt-4 text-church-brown hover:underline">
-                    Подробнее о храме →
+                <Link href="/about" className="inline-block mt-12 text-church-brown hover:underline display-flex flex-row items-center gap-1" style={{
+                    display: "flex",
+                    alignItems: "center"
+                }}>
+                    Подробнее о храме <ChevronRight style={{ width: "20px", height: "20px" }} />
                 </Link>
             )}
         </div>

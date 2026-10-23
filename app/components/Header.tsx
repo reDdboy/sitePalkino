@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import ThemeToggle from './ThemeToggle/ThemeToggle'
 
 type NavLink = {
     name: string
@@ -64,34 +63,21 @@ const Header = () => {
 
     return (
         <>
-            <header className="bg-background/70 backdrop-blur-md border-b border-church-gold/40 dark:border-church-gold/60 py-2 sm:py-3 transition-colors duration-300 sticky top-0 z-50">
+            <header className="w-full bg-background/70 backdrop-blur-md border-b border-church-gold/40 dark:border-church-gold/60 py-2 sm:py-3 transition-colors duration-300 fixed top-0 z-50">
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between gap-2">
                         {/* Левая часть: фото и название */}
                         <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
-                            <div className="flex-shrink-0">
-                                <Link
-                                    href="/"
-                                    className="relative block w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-md border-2 border-church-gold/30"
-                                >
-                                    <Image
-                                        src="/hram.jpg"
-                                        alt="Храм Серафима Саровского"
-                                        fill
-                                        sizes="(max-width: 640px) 40px, (max-width: 768px) 56px, (max-width: 1024px) 80px, 96px"
-                                        className="object-cover"
-                                        priority
-                                    />
-                                </Link>
-                            </div>
 
                             <div className="text-left min-w-0 flex-1">
                                 <h1 className="font-serif text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground leading-tight truncate">
-                                    ХРАМ ПРЕПОДОБНОГО
-                                </h1>
-                                <div className="font-serif text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground tracking-wider leading-tight truncate">
+                                    ХРАМ ПРЕПОДОБНОГО<br />
                                     СЕРАФИМА САРОВСКОГО
-                                </div>
+                                </h1>
+                                {/* <h1 style={{ fontWeight: 'bold', fontFamily: "serif" }}>
+                                    ХРАМ ПРЕПОДОБНОГО<br />
+                                    СЕРАФИМА САРОВСКОГО
+                                </h1> */}
                             </div>
                         </div>
 
@@ -143,12 +129,10 @@ const Header = () => {
                                     </div>
                                 </div>
                             </nav>
-                            <ThemeToggle />
                         </div>
 
                         {/* Мобильное меню: кнопка */}
                         <div className="lg:hidden flex items-center gap-1 sm:gap-2 flex-shrink-0">
-                            <ThemeToggle />
                             <button
                                 className="p-1.5 sm:p-2 hover:bg-church-gold/10 rounded-[12px] transition-colors relative z-50"
                                 onClick={() => setIsOpen((v) => !v)}

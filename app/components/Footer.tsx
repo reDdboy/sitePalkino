@@ -1,5 +1,6 @@
 import { Phone, MapPin } from 'lucide-react'
 import Image from 'next/image'
+import ThemeToggle from './ThemeToggle/ThemeToggle'
 
 export default function Footer() {
     const links = [
@@ -25,6 +26,26 @@ export default function Footer() {
         <footer className="bg-background border-t border-church-gold/60 mt-16 transition-colors duration-300">
             <div className="container mx-auto px-4 py-12">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+
+                    {/* Левая часть: информация о храме */}
+                    <div className="flex-1">
+                        <div className="mb-4">
+                            <h3 className="font-serif text-xl font-bold text-church-brown mb-2">
+                                ХРАМ ПРЕПОДОБНОГО
+                            </h3>
+                            <div className="font-serif text-xl font-bold text-church-brown tracking-wider">
+                                СЕРАФИМА САРОВСКОГО
+                            </div>
+                        </div>
+                        <p className="text-foreground/70 mb-6 max-w-md">
+                            Храм Преподобного Серафима Саровского в селе Палкино
+                            Антроповского района РО «Галичская Епархия РПЦ (МП)»
+                        </p>
+                        <ThemeToggle />
+                        <p className="text-foreground/70 mb-6 mt-6 max-w-md">
+                            © Храм Преподобного Серафима Саровского, {new Date().getFullYear()}
+                        </p>
+                    </div>
 
                     {/* Центральная часть: разделы сайта */}
                     <div className="flex-1">
@@ -82,7 +103,7 @@ export default function Footer() {
                                         href='https://yandex.ru/maps/?ll=42.939254%2C58.245402&mode=poi&poi%5Bpoint%5D=42.938343%2C58.247226&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1374904968&z=16.6'
                                         rel='noopener noreferrer'
                                         target='_blank'>
-                                        село Палкино,<br />
+                                        Село Палкино,<br />
                                         Антроповский район
                                     </a>
                                 </div>
@@ -106,8 +127,8 @@ export default function Footer() {
                                     <Image
                                         src="/vk_logo.svg"
                                         alt="Логотип ВКонтакте"
-                                        width={24}
-                                        height={24}
+                                        width={52}
+                                        height={52}
                                         className=""
                                     />
                                 </div>
@@ -117,22 +138,6 @@ export default function Footer() {
                                 </div>
                             </a>
                         </div>
-                    </div>
-
-                    {/* Левая часть: информация о храме */}
-                    <div className="flex-1">
-                        <div className="mb-4">
-                            <h3 className="font-serif text-xl font-bold text-church-brown mb-2">
-                                © {new Date().getFullYear()}. ХРАМ ПРЕПОДОБНОГО
-                            </h3>
-                            <div className="font-serif text-xl font-bold text-church-brown tracking-wider">
-                                СЕРАФИМА САРОВСКОГО
-                            </div>
-                        </div>
-                        <p className="text-foreground/70 mb-6 max-w-md">
-                            Храм Преподобного Серафима Саровского в селе Палкино
-                            Антроповского района РО «Галичская Епархия РПЦ (МП)»
-                        </p>
                     </div>
 
                 </div>
