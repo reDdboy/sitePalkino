@@ -21,6 +21,9 @@
     },
     "homepage": "https://github.com/reDdboy/sitePalkino#readme",
     "dependencies": {
+        "@heroui/react": "^3.2.6",
+        "@heroui/styles": "^3.2.6",
+        "@internationalized/date": "^3.12.4",
         "@tailwindcss/postcss": "^4.1.18",
         "axios": "^1.7.9",
         "clsx": "^2.1.1",

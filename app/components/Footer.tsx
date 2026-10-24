@@ -25,10 +25,9 @@ export default function Footer() {
     return (
         <footer className="bg-background border-t border-church-gold/60 mt-16 transition-colors duration-300">
             <div className="container mx-auto px-4 py-12">
-                <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-
+                <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] xl:gap-12">
                     {/* Левая часть: информация о храме */}
-                    <div className="flex-1">
+                    <div className="min-w-0 flex flex-col">
                         <div className="mb-4">
                             <h3 className="font-serif text-xl font-bold text-church-brown mb-2">
                                 ХРАМ ПРЕПОДОБНОГО
@@ -41,126 +40,128 @@ export default function Footer() {
                             Храм Преподобного Серафима Саровского в селе Палкино
                             Антроповского района РО «Галичская Епархия РПЦ (МП)»
                         </p>
-                        <div className="mt-6">
+                        <div className="mt-6 w-full max-w-[340px]">
                             <ThemeToggle />
                         </div>
-                        <p className="text-foreground/70 mt-6 mb-6 max-w-md">
-                            © Храм Преподобного Серафима Саровского, {new Date().getFullYear()}
-                        </p>
                     </div>
 
                     {/* Центральная часть: разделы сайта */}
-                    <div className="flex-1">
-                        <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
-                            Разделы сайта
-                        </h4>
-                        <ul className="space-y-3">
-                            {links.map((link, idx) => (
-                                <li key={idx}>
-                                    <a
-                                        href={link.link}
-                                        className="font-sans text-foreground/80 hover:text-church-red transition-colors flex items-center gap-2"
-                                    >
-                                        {link.name}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Правая часть: контакты */}
-                    <div className="flex-1">
-                        <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
-                            Контакты
-                        </h4>
-                        <ul className="space-y-4">
-                            <li className="flex items-start gap-3">
-                                <Phone className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
-                                <div>
-                                    <div className="font-sans text-foreground/80 font-medium">Настоятель Храма о. Александр</div>
-                                    <div className="font-sans text-foreground/70">
-                                        <a className="hover:text-church-red"
-                                            href='tel:+79264904819'>
-                                            +7 (926) 490-48-19
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+                        <div className="min-w-0">
+                            <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
+                                Разделы сайта
+                            </h4>
+                            <ul className="space-y-3">
+                                {links.map((link, idx) => (
+                                    <li key={idx}>
+                                        <a
+                                            href={link.link}
+                                            className="font-sans text-foreground/80 hover:text-church-red transition-colors flex items-center gap-2"
+                                        >
+                                            {link.name}
                                         </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Правая часть: контакты */}
+                        <div className="min-w-0">
+                            <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
+                                Контакты
+                            </h4>
+                            <ul className="space-y-4">
+                                <li className="flex items-start gap-3">
+                                    <Phone className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
+                                    <div>
+                                        <div className="font-sans text-foreground/80 font-medium">Настоятель Храма о. Александр</div>
+                                        <div className="font-sans text-foreground/70">
+                                            <a className="hover:text-church-red"
+                                                href='tel:+79264904819'>
+                                                +7 (926) 490-48-19
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <Phone className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
-                                <div>
-                                    <div className="font-sans text-foreground/80 font-medium">Матушка Наталия</div>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <Phone className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
+                                    <div>
+                                        <div className="font-sans text-foreground/80 font-medium">Матушка Наталия</div>
+                                        <div className="font-sans text-foreground/70">
+                                            <a className='hover:text-church-red'
+                                                href='tel:+79999040403'>
+                                                +7 (999) 904-04-03
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <MapPin className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
                                     <div className="font-sans text-foreground/70">
                                         <a className='hover:text-church-red'
-                                            href='tel:+79999040403'>
-                                            +7 (999) 904-04-03
+                                            href='https://yandex.ru/maps/?ll=42.939254%2C58.245402&mode=poi&poi%5Bpoint%5D=42.938343%2C58.247226&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1374904968&z=16.6'
+                                            rel='noopener noreferrer'
+                                            target='_blank'>
+                                            Село Палкино,<br />
+                                            Антроповский район
                                         </a>
                                     </div>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <MapPin className="h-5 w-5 text-church-brown flex-shrink-0 mt-0.5" />
-                                <div className="font-sans text-foreground/70">
-                                    <a className='hover:text-church-red'
-                                        href='https://yandex.ru/maps/?ll=42.939254%2C58.245402&mode=poi&poi%5Bpoint%5D=42.938343%2C58.247226&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1374904968&z=16.6'
-                                        rel='noopener noreferrer'
-                                        target='_blank'>
-                                        Село Палкино,<br />
-                                        Антроповский район
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                                </li>
+                            </ul>
+                        </div>
 
-                    {/* Сообщества */}
-                    <div className="flex-1 w-full">
-                        <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
-                            Сообщества
-                        </h4>
-                        <div className="flex flex-col gap-3">
-                            <a
-                                href="https://vk.com/hrampalkino"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 px-4 py-3 bg-church-light/70 dark:bg-church-light/5 border border-church-gold/20 rounded-xl hover:bg-church-gold/10 transition-all duration-300 hover:border-church-gold/40 hover:shadow-md group"
-                            >
-                                <div className="w-10 h-10 rounded-full  flex items-center justify-center flex-shrink-0 transition-colors">
-                                    <Image
-                                        src="/vk_logo.svg"
-                                        alt="Логотип ВКонтакте"
-                                        width={52}
-                                        height={52}
-                                        className=""
-                                    />
-                                </div>
-                                <div>
-                                    <div className="font-medium text-foreground">ВКонтакте</div>
-                                    <div className="text-xs text-foreground/60">Храм Преподобного Серафима Саровского</div>
-                                </div>
-                            </a>
-                            <a
-                                href="https://vk.ru/id871231747"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 px-4 py-3 bg-church-light/70 dark:bg-church-light/5 border border-church-gold/20 rounded-xl hover:bg-church-gold/10 transition-all duration-300 hover:border-church-gold/40 hover:shadow-md group"
-                            >
-                                <div className="w-10 h-10 rounded-full  flex items-center justify-center flex-shrink-0 transition-colors">
-                                    <Image
-                                        src="/vk_logo.svg"
-                                        alt="Логотип ВКонтакте"
-                                        width={52}
-                                        height={52}
-                                        className=""
-                                    />
-                                </div>
-                                <div>
-                                    <div className="font-medium text-foreground">ВКонтакте</div>
-                                    <div className="text-xs text-foreground/60">Церковь Николая Чудотворца на Дору</div>
-                                </div>
-                            </a>
+                        {/* Сообщества */}
+                        <div className="min-w-0 w-full">
+                            <h4 className="font-sans text-lg font-semibold mb-4 text-church-brown">
+                                Сообщества
+                            </h4>
+                            <div className="flex flex-col gap-3">
+                                <a
+                                    href="https://vk.com/hrampalkino"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 px-4 py-3 bg-church-light/70 dark:bg-church-light/5 border border-church-gold/20 rounded-xl hover:bg-church-gold/10 transition-all duration-300 hover:border-church-gold/40 hover:shadow-md group"
+                                >
+                                    <div className="w-10 h-10 rounded-full  flex items-center justify-center flex-shrink-0 transition-colors">
+                                        <Image
+                                            src="/vk_logo.svg"
+                                            alt="Логотип ВКонтакте"
+                                            width={52}
+                                            height={52}
+                                            className=""
+                                        />
+                                    </div>
+                                    <div>
+                                        <div className="font-medium text-foreground">ВКонтакте</div>
+                                        <div className="text-xs text-foreground/60">Храм Преподобного Серафима Саровского</div>
+                                    </div>
+                                </a>
+                                <a
+                                    href="https://vk.ru/id871231747"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 px-4 py-3 bg-church-light/70 dark:bg-church-light/5 border border-church-gold/20 rounded-xl hover:bg-church-gold/10 transition-all duration-300 hover:border-church-gold/40 hover:shadow-md group"
+                                >
+                                    <div className="w-10 h-10 rounded-full  flex items-center justify-center flex-shrink-0 transition-colors">
+                                        <Image
+                                            src="/vk_logo.svg"
+                                            alt="Логотип ВКонтакте"
+                                            width={52}
+                                            height={52}
+                                            className=""
+                                        />
+                                    </div>
+                                    <div>
+                                        <div className="font-medium text-foreground">ВКонтакте</div>
+                                        <div className="text-xs text-foreground/60">Церковь Николая Чудотворца на Дору</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div className="mt-8 border-t border-church-gold/20 pt-6 text-sm text-foreground/60 xl:col-span-2">
+                    © Храм Преподобного Серафима Саровского, {new Date().getFullYear()}
                 </div>
             </div>
         </footer>
