@@ -23,9 +23,9 @@ export default function ThemeToggle() {
             <div
                 role="group"
                 aria-label="Цветовая тема сайта"
-                className="flex w-full items-center gap-1 rounded-full
+                className="flex w-full items-center gap-1 rounded-[10px]
                     border border-church-gold/20
-                    bg-church-gold/10 p-1"
+                    bg-church-gold/10 p-[2px]"
             >
                 {themes.map((item) => {
                     const active = mounted && theme === item.value
@@ -37,17 +37,18 @@ export default function ThemeToggle() {
                             disabled={!mounted}
                             onClick={() => setTheme(item.value)}
                             aria-pressed={active}
+                            style={{ fontSize: '12px' }}
                             className={`
-                                flex-1 rounded-full px-2 py-2
-                                text-sm sm:text-base font-medium
+                                flex-1 px-2.5 py-2 rounded-lg py-[6px]
+                                sm:text-base font-medium
                                 whitespace-nowrap
                                 transition-colors duration-200
                                 focus-visible:outline-none
                                 focus-visible:ring-2
                                 focus-visible:ring-church-gold
                                 ${active
-                                    ? "bg-church-brown text-church-light shadow-sm"
-                                    : "text-foreground/70 hover:bg-church-gold/10 hover:text-foreground"
+                                    ? "bg-church-brown text-white"
+                                    : "text-foreground/75 hover:bg-church-gold/10"
                                 }
                             `}
                         >

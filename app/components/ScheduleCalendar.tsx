@@ -5,7 +5,6 @@ import { Calendar } from "@heroui/react";
 import {
     today,
     getLocalTimeZone,
-    parseDate,
     type DateValue,
 } from "@internationalized/date";
 import { scheduleData } from "../data/schedule";
@@ -84,31 +83,31 @@ export default function ScheduleCalendar() {
                                 const hasEvents = entriesByDate.has(
                                     date.toString()
                                 );
+                                const isSelected = date.toString() === selectedDateString;
 
                                 return (
                                     <Calendar.Cell
                                         date={date}
-                                        className="
+                                        className={`
                                             group relative cursor-pointer rounded-lg text-sm
                                             transition-all duration-150
                                             hover:bg-church-gold/20
-                                            hover:text-church-gold
                                             hover:ring-1 hover:ring-church-gold/60
                                             focus-visible:outline-none
                                             focus-visible:ring-2 focus-visible:ring-church-gold
-                                        "
+                                            ${isSelected ? "bg-church-brown text-white shadow-md" : "text-foreground"}
+                                            data-[outside-month=true]:hidden
+                                        `}
                                     >
                                         {({ formattedDate }) => {
-                                            const hasEvents = entriesByDate.has(date.toString());
-
                                             return (
-                                                <span className="relative flex min-h-9 w-full flex-col items-center justify-center gap-0.5 sm:min-h-10">
-                                                    <span className="font-medium transition-colors group-hover:text-church-gold">
+                                                <span className={`relative flex min-h-9 w-full flex-col items-center justify-center gap-0.5 sm:min-h-10 ${!isSelected ? 'group-hover:text-church-gold' : ''}`}>
+                                                    <span className={`font-medium transition-all duration-150 ${!isSelected ? 'group-hover:font-bold group-hover:scale-110' : ''}`}>
                                                         {formattedDate}
                                                     </span>
 
                                                     {hasEvents && (
-                                                        <Calendar.CellIndicator className="h-1.5 w-1.5 rounded-full bg-church-gold" />
+                                                        <Calendar.CellIndicator className={`h-1.5 w-1.5 rounded-full ${isSelected ? 'bg-white' : 'bg-church-gold'}`} />
                                                     )}
                                                 </span>
                                             );
@@ -119,11 +118,6 @@ export default function ScheduleCalendar() {
                         </Calendar.GridBody>
                     </Calendar.Grid>
                 </Calendar>
-
-                <div className="mt-4 flex items-center justify-center gap-2 text-sm text-foreground/65">
-                    <span className="h-2 w-2 rounded-full bg-church-gold" />
-                    Есть события в расписании
-                </div>
             </div>
 
             {/* События выбранной даты */}

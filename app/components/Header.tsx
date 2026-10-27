@@ -69,7 +69,7 @@ const Header = () => {
             <header
                 className={`w-full py-2 sm:py-3 backdrop-blur-md border-b
                         transition-colors duration-300 z-50 ${isHomePage
-                        ? "absolute top-0 left-0 bg-background/40 border-church-gold/30"
+                        ? "absolute fixed top-0 left-0 bg-background/40 border-church-gold/30"
                         : "sticky top-0 bg-background/90 border-church-gold/40"
                     }`}
             >
