@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[34876,["/_next/static/chunks/32cgahg4i2_6x.js","/_next/static/chunks/0lnf0tanbsw10.js"],"Image"]
+3:I[87256,["/_next/static/chunks/32cgahg4i2_6x.js","/_next/static/chunks/0lnf0tanbsw10.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"container mx-auto px-4 py-12","children":[["$","h1",null,{"className":"font-serif text-4xl font-bold text-center mb-8","children":"Духовенство"}],["$","div",null,{"className":"flex flex-col items-center","children":[["$","$L2",null,{"src":"/clergy/main.jpg","alt":"Иерей Александр Семченко, настоятель храма","width":300,"height":200,"priority":true,"className":"rounded-lg shadow-md object-cover"}],["$","h2",null,{"className":"font-serif text-2xl font-bold text-center mt-4","children":"Иерей Александр Семченко"}],["$","h3",null,{"className":"font-serif text-lg text-foreground/70 text-center mt-1","children":"Настоятель храма"}]]}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"sW4ZYe_8VWSf4zgwkoaMB"}
+5:null

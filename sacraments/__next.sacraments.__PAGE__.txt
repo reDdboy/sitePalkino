@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[87256,["/_next/static/chunks/32cgahg4i2_6x.js","/_next/static/chunks/0lnf0tanbsw10.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"container mx-auto max-w-4xl px-4 py-12 sm:py-16","children":[["$","h1",null,{"className":"mb-6 font-serif text-3xl font-bold text-foreground sm:text-4xl","children":"Таинства и требы"}],["$","p",null,{"className":"text-base leading-relaxed text-foreground/75","children":"Здесь будет размещена информация о таинствах и требах."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"sW4ZYe_8VWSf4zgwkoaMB"}
+4:null
