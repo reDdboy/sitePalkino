@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Clergy() {
     return (
         <div className="container mx-auto px-4 py-12">
-            <h1 className="font-serif text-4xl font-bold text-center mb-8">
+            <h1 className="mb-8 text-center font-serif text-3xl font-bold text-foreground sm:text-4xl">
                 Духовенство
             </h1>
 

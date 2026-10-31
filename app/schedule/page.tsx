@@ -17,7 +17,7 @@ export default function Schedule() {
 
             <div className="mb-6 flex justify-center">
                 <div
-                    className="inline-flex rounded-xl border border-church-gold/30 bg-church-gold/5 p-1 gap-1"
+                    className="inline-flex rounded-[12px] border border-church-gold/30 bg-church-gold/5 p-1 gap-1"
                     role="group"
                     aria-label="Вид расписания"
                 >

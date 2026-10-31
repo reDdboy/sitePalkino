@@ -50,7 +50,7 @@ export default function ScheduleCalendar() {
 
                 <Calendar
                     aria-label="Дата богослужения"
-                    value={selectedDate}
+                    // value={selectedDate}
                     onChange={setSelectedDate}
                     firstDayOfWeek="mon"
                     className="mx-auto w-full max-w-md rounded-xl border border-church-gold/20 bg-background p-3 sm:p-4"
