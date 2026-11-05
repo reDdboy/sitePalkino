@@ -31,7 +31,7 @@ const SCHEDULE = [
 ]
 
 export default function Contacts() {
-    const [activeChurch, setActiveChurch] = useState(CHURCHES[0].id)
+    const [activeChurch, setActiveChurch] = useState<(typeof CHURCHES)[number]["id"]>(CHURCHES[0].id)
     const current = CHURCHES.find((c) => c.id === activeChurch) ?? CHURCHES[0]
 
     return (

@@ -1,7 +1,11 @@
+'use client'
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { scheduleData } from "../data/schedule";
+import type { ApiScheduleDay } from "../lib/api";
 
 type ScheduleCardProps = {
+    entries: ApiScheduleDay[];
     limit?: number;
     showLink?: boolean;
 };
@@ -26,52 +30,38 @@ function getTodayDate() {
 }
 
 export default function ScheduleCard({
+    entries,
     limit,
     showLink = false,
 }: ScheduleCardProps) {
-    const today = getTodayDate();
+    // Дату «сегодня» пересчитываем после гидратации: при статической сборке
+    // серверный HTML может быть собран вчера, а список должен быть актуальным.
+    const [today, setToday] = useState(getTodayDate);
 
-    const grouped = new Map<
-        string,
-        {
-            date: string;
-            isoDate: string;
-            day: string;
-            saints: string[];
-            notes: string[];
-            services: {
-                time: string;
-                description: string;
-            }[];
-        }
-    >();
+    useEffect(() => {
+        setToday(getTodayDate());
+    }, []);
 
-    for (const item of scheduleData) {
+    const grouped = new Map<string, ApiScheduleDay>();
+
+    for (const item of entries) {
         if (item.isoDate < today) continue;
 
-        const existing = grouped.get(item.isoDate) ?? {
-            date: item.date,
-            isoDate: item.isoDate,
-            day: item.day,
-            saints: [],
-            notes: [],
-            services: [],
-        };
+        const existing = grouped.get(item.isoDate);
 
-        if (item.saints?.trim()) {
-            existing.saints.push(item.saints);
+        if (existing) {
+            existing.services.push(...item.services);
+            if (item.saints?.trim()) existing.saints = item.saints;
+            if (item.note?.trim()) existing.note = item.note;
+        } else {
+            grouped.set(item.isoDate, {
+                ...item,
+                services: [...item.services],
+            });
         }
-
-        if (item.note?.trim()) {
-            existing.notes.push(item.note);
-        }
-
-        existing.services.push(...item.services);
-
-        grouped.set(item.isoDate, existing);
     }
 
-    const entries = [...grouped.values()]
+    const upcoming = [...grouped.values()]
         .sort((a, b) => a.isoDate.localeCompare(b.isoDate))
         .slice(0, limit);
 
@@ -81,14 +71,14 @@ export default function ScheduleCard({
                 Ближайшие богослужения
             </h2>
 
-            {entries.length === 0 ? (
+            {upcoming.length === 0 ? (
                 <p className="text-foreground/70">
                     Ближайшее расписание пока не опубликовано.
                     Пожалуйста, уточните информацию по телефону храма.
                 </p>
             ) : (
                 <div className="space-y-4">
-                    {entries.map((entry) => (
+                    {upcoming.map((entry) => (
                         <article
                             key={entry.isoDate}
                             className="rounded-xl border border-church-gold/20 bg-background/70 p-4"
@@ -106,27 +96,17 @@ export default function ScheduleCard({
                                 </time>
                             </div>
 
-                            {entry.saints.length > 0 && (
-                                <div className="mb-3 space-y-1">
-                                    {entry.saints.map((saint, index) => (
-                                        <p
-                                            key={`${entry.isoDate}-saint-${index}`}
-                                            className="text-sm italic text-foreground/70"
-                                        >
-                                            {saint}
-                                        </p>
-                                    ))}
-                                </div>
+                            {entry.saints && (
+                                <p className="mb-3 text-sm italic text-foreground/70">
+                                    {entry.saints}
+                                </p>
                             )}
 
-                            {entry.notes.map((note, index) => (
-                                <p
-                                    key={`${entry.isoDate}-note-${index}`}
-                                    className="mb-3 rounded-lg bg-church-gold/10 p-3 text-sm text-foreground"
-                                >
-                                    {note}
+                            {entry.note && (
+                                <p className="mb-3 rounded-lg bg-church-gold/10 p-3 text-sm text-foreground">
+                                    {entry.note}
                                 </p>
-                            ))}
+                            )}
 
                             {entry.services.length > 0 ? (
                                 <ul className="space-y-3">
@@ -145,11 +125,11 @@ export default function ScheduleCard({
                                         </li>
                                     ))}
                                 </ul>
-                            ) : entry.notes.length === 0 ? (
+                            ) : (
                                 <p className="text-sm text-foreground/60">
                                     Время богослужений не указано.
                                 </p>
-                            ) : null}
+                            )}
                         </article>
                     ))}
                 </div>

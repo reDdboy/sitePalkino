@@ -1,0 +1,13 @@
+node_modules/
+.env
+uploads/*
+!uploads/.gitkeep
+# Демонстрационные фото для локальных данных (загруженные через админку файлы не коммитятся)
+!uploads/news/
+!uploads/news/**
+admin-panel/dist/
+admin-panel/node_modules/
+*.tsbuildinfo
+*.log
+
+.DS_Store

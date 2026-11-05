@@ -1,16 +1,28 @@
 import Link from "next/link"
-import { newsData } from "../data/news"
+import { formatNewsDate, type ApiNews } from "../lib/api"
 
-export default function NewsCard({ limit, showLink = false }: { limit?: number; showLink?: boolean }) {
-    const newsToShow = limit ? newsData.slice(0, limit) : newsData;
+type NewsCardProps = {
+    items: ApiNews[];
+    limit?: number;
+    showLink?: boolean;
+}
+
+export default function NewsCard({ items, limit, showLink = false }: NewsCardProps) {
+    const newsToShow = limit ? items.slice(0, limit) : items;
 
     return (
         <div className="bg-church-gold/5 rounded-[12px] p-6 border border-church-gold/20">
             <h3 className="font-serif text-2xl font-bold text-foreground mb-4">Новости</h3>
             <div className="space-y-4">
-                {newsToShow.map((item, idx) => (
-                    <div key={idx} className="border-b border-church-gold/20 pb-3 last:border-0">
-                        <div className="text-sm text-church-brown">{item.date}</div>
+                {newsToShow.length === 0 && (
+                    <p className="text-sm text-foreground/70">
+                        Новостей пока нет. Добавьте их через админку.
+                    </p>
+                )}
+
+                {newsToShow.map((item) => (
+                    <div key={item.id} className="border-b border-church-gold/20 pb-3 last:border-0">
+                        <div className="text-sm text-church-brown">{formatNewsDate(item.date)}</div>
                         <div className="font-medium mt-1">{item.title}</div>
                         <p className="text-sm text-foreground/70 mt-1">{item.excerpt}</p>
                     </div>

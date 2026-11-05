@@ -1,14 +1,13 @@
 import Image from "next/image"
-import Link from "next/link"
-import Script from "next/script"
-import { scheduleData } from "./data/schedule";
-import { newsData } from "./data/news"
+import { getNews, getSchedule } from "./lib/api"
 import ScheduleCard from "./components/ScheduleCard";
 import NewsCard from "./components/NewsCard";
 import AboutCard from "./components/AboutCard";
 import Widget from "./components/Widget/Widget";
 
-export default function HomePage() {
+export default async function HomePage() {
+    const [news, schedule] = await Promise.all([getNews(4), getSchedule()]);
+
     return (
         <div className="bg-background transition-colors duration-300">
             {/* Шапка с фото */}
@@ -44,8 +43,8 @@ export default function HomePage() {
                 <div className="grid lg:grid-cols-[1fr_420px] gap-8 items-start">
                     {/* Левая колонка */}
                     <div className="space-y-8">
-                        <ScheduleCard limit={4} showLink={true} />
-                        <NewsCard limit={4} showLink={true} />
+                        <ScheduleCard entries={schedule} limit={4} showLink={true} />
+                        <NewsCard items={news} limit={4} showLink={true} />
                     </div>
 
                     {/* Правая колонка */}

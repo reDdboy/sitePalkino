@@ -1,0 +1,34 @@
+{
+    "name": "palkino-api",
+    "version": "2.0.0",
+    "private": true,
+    "description": "API сайта храма (новости, расписание) и сборка админ-панели",
+    "main": "src/server.js",
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "node --watch src/server.js",
+        "test": "node --test",
+        "db:init": "node src/db/init.js",
+        "admin:install": "npm --prefix admin-panel install",
+        "admin:dev": "npm --prefix admin-panel run dev",
+        "admin:build": "npm --prefix admin-panel run build",
+        "build": "npm run admin:install && npm run admin:build"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.0",
+        "express-rate-limit": "^7.4.0",
+        "express-session": "^1.18.0",
+        "helmet": "^7.1.0",
+        "memorystore": "^1.6.8",
+        "multer": "^2.4.0",
+        "mysql2": "^3.11.0"
+    },
+    "devDependencies": {
+        "supertest": "^7.0.0"
+    }
+}

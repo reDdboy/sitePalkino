@@ -1,0 +1,25 @@
+{
+    "name": "palkino-admin-panel",
+    "private": true,
+    "version": "2.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc --noEmit && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@gravity-ui/icons": "^2.23.0",
+        "@heroui/react": "^3.2.6",
+        "@heroui/styles": "^3.2.6",
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.5",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.7.0",
+        "typescript": "^5.5.4",
+        "vite": "^7.3.7"
+    }
+}

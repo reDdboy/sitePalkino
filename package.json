@@ -4,8 +4,14 @@
     "description": "Сайт храма Серафима Саровского Антроповский район село Палкино",
     "main": "index.js",
     "scripts": {
-        "dev": "next dev",
+        "dev": "node scripts/dev.mjs",
+        "dev:web": "next dev",
+        "dev:server": "npm --prefix server run dev",
+        "dev:admin": "npm --prefix server run admin:dev",
         "build": "next build",
+        "build:admin": "npm --prefix server run admin:build",
+        "setup:server": "npm --prefix server install",
+        "setup:admin": "npm --prefix server run admin:install && npm --prefix server run admin:build",
         "start": "next start",
         "deploy": "npm run build && ./deploy.sh",
         "github": "gh-pages -d out"

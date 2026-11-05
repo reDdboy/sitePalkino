@@ -3,8 +3,10 @@ const nextConfig = {
     output: 'export', // статический экспорт
     reactStrictMode: true,
     allowedDevOrigins: ['172.20.10.*'],
+    turbopack: {
+        root: __dirname,
+    },
     images: {
-        domains: [],
         unoptimized: true,
     },
 }

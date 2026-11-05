@@ -7,7 +7,7 @@ import {
     getLocalTimeZone,
     type DateValue,
 } from "@internationalized/date";
-import { scheduleData } from "../data/schedule";
+import type { ApiScheduleDay } from "../lib/api";
 
 function formatSelectedDate(dateString: string) {
     const [year, month, day] = dateString.split("-").map(Number);
@@ -20,22 +20,26 @@ function formatSelectedDate(dateString: string) {
     }).format(new Date(year, month - 1, day));
 }
 
-export default function ScheduleCalendar() {
+type ScheduleCalendarProps = {
+    entries: ApiScheduleDay[];
+};
+
+export default function ScheduleCalendar({ entries }: ScheduleCalendarProps) {
     const [selectedDate, setSelectedDate] = useState<DateValue | null>(
         () => today(getLocalTimeZone())
     );
 
     const entriesByDate = useMemo(() => {
-        const map = new Map<string, typeof scheduleData>();
+        const map = new Map<string, ApiScheduleDay[]>();
 
-        for (const item of scheduleData) {
+        for (const item of entries) {
             const entries = map.get(item.isoDate) ?? [];
             entries.push(item);
             map.set(item.isoDate, entries);
         }
 
         return map;
-    }, []);
+    }, [entries]);
 
     const selectedDateString = selectedDate?.toString() ?? "";
     const selectedEntries = entriesByDate.get(selectedDateString) ?? [];
